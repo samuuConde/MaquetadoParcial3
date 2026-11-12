@@ -1,5 +1,147 @@
 @import "./global.css";
 
-h1 {
-  color: #1d4ed8;
+@import "./global.css";
+
+.portada {
+    min-height: 620px;
+    height: 78vh;
+    max-height: 780px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    overflow: hidden;
+    background-color: #164b60;
+}
+
+.portada-fondo {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(90deg, rgba(7, 35, 49, 0.88), rgba(7, 35, 49, 0.15)),
+        url("https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1800");
+    background-size: cover;
+    background-position: center;
+}
+
+.portada-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    color: white;
+}
+
+.portada-etiqueta {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #a7e4ed;
+}
+
+.portada h1 {
+    max-width: 650px;
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5.5vw, 72px);
+    line-height: 1.08;
+    font-weight: normal;
+    margin: 28px 0;
+}
+
+.portada-contenido p {
+    max-width: 490px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e2edf0;
+    margin-bottom: 35px;
+}
+
+.boton-portada {
+    display: inline-block;
+    padding: 16px 25px;
+    background-color: white;
+    color: #123b50;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-portada:hover {
+    background-color: #a7e4ed;
+}
+
+.boton-portada span {
+    margin-left: 18px;
+}
+
+.portada-indicador {
+    position: absolute;
+    z-index: 1;
+    bottom: 35px;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.portada-indicador span:first-child {
+    font-size: 25px;
+    font-family: Georgia, serif;
+}
+
+.introduccion {
+    max-width: 850px;
+    margin: 100px auto;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.introduccion span {
+    color: #159bb5;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.introduccion h2 {
+    color: #123b50;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin: 25px 0;
+}
+
+.introduccion p {
+    color: #647783;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+    .portada {
+        min-height: 580px;
+        height: 75vh;
+        padding: 40px 7%;
+    }
+
+    .portada h1 {
+        font-size: 43px;
+    }
+
+    .portada-indicador {
+        right: 7%;
+        bottom: 20px;
+    }
+
+    .introduccion {
+        margin: 65px auto;
+    }
+
+    .introduccion h2 {
+        font-size: 30px;
+    }
 }

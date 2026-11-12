@@ -1,1 +1,151 @@
 @import './global.css';
+
+@import './global.css';
+
+.login-contenedor {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.login-imagen {
+    display: flex;
+    align-items: center;
+    padding: 70px 12%;
+    background-image:
+        linear-gradient(rgba(7, 35, 49, 0.65), rgba(7, 35, 49, 0.65)),
+        url("https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1200");
+    background-size: cover;
+    background-position: center;
+}
+
+.login-mensaje {
+    color: white;
+    max-width: 450px;
+}
+
+.login-mensaje span,
+.login-etiqueta {
+    color: #159bb5;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.login-mensaje h1 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.login-mensaje p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #e2edf0;
+}
+
+.login-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    background-color: #ffffff;
+}
+
+.login-contenido {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-contenido h2 {
+    color: #123b50;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    margin: 20px 0 10px;
+}
+
+.login-descripcion {
+    color: #647783;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 23px;
+}
+
+.campo label {
+    color: #183b4e;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campo input {
+    padding: 15px;
+    border: 1px solid #d9e1e5;
+    border-radius: 3px;
+    font-size: 14px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #159bb5;
+}
+
+.boton-login {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 3px;
+    background-color: #123b50;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-login:hover {
+    background-color: #159bb5;
+}
+
+.login-regreso {
+    margin-top: 30px;
+    color: #647783;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-regreso a {
+    color: #159bb5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#mensaje-login {
+    color: #c0392b;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .login-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .login-imagen {
+        min-height: 300px;
+    }
+
+    .login-mensaje h1 {
+        font-size: 36px;
+    }
+
+    .login-formulario {
+        padding: 55px 8%;
+    }
+}
