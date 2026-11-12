@@ -12,7 +12,45 @@
     <include src="header.html"></include>
 
     <main>
-        <h1>Formulario de usuario</h1>
+        <a href="usuarios.html">← Volver a usuarios</a>
+        <h1 id="titulo-form">Nuevo usuario</h1>
+
+        <form id="form-usuario" class="tarjeta" novalidate>
+            <label for="nombre_usuario">Nombre de usuario</label>
+            <input type="text" id="nombre_usuario" name="nombre_usuario" />
+            <span class="error" id="error-nombre_usuario"></span>
+
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" />
+            <span class="error" id="error-correo"></span>
+
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena" />
+            <span class="error" id="error-contrasena"></span>
+
+            <label for="telefono">Teléfono (10 dígitos)</label>
+            <input type="tel" id="telefono" name="telefono" />
+            <span class="error" id="error-telefono"></span>
+
+            <label for="rol">Rol</label>
+            <select id="rol" name="rol">
+                <option value="">Selecciona un rol</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Técnico">Técnico</option>
+                <option value="Ciudadano">Ciudadano</option>
+            </select>
+            <span class="error" id="error-rol"></span>
+
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+
+            <p id="mensaje-form"></p>
+            <button class="btn" type="submit">Guardar</button>
+            <a class="btn btn-sec" href="usuarios.html">Cancelar</a>
+        </form>
     </main>
 
     <include src="footer.html"></include>
