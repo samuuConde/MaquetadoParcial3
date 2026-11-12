@@ -1,23 +1,86 @@
+
 <!doctype html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iniciar sesi&oacute;n</title>
+    <title>Iniciar sesión | AguaAlerta</title>
     <link rel="stylesheet" href="/src/css/login.css" />
 </head>
 
 <body>
+
     <include src="header.html"></include>
 
-    <main>
-        <h1>Iniciar sesi&oacute;n</h1>
+    <main class="login-contenedor">
+
+        <section class="login-imagen">
+            <div class="login-mensaje">
+                <span>AGUAALERTA</span>
+                <h1>El cuidado del agua comienza contigo.</h1>
+                <p>Conecta con tu comunidad y contribuye al cuidado de este recurso.</p>
+            </div>
+        </section>
+
+        <section class="login-formulario">
+
+            <div class="login-contenido">
+
+                <span class="login-etiqueta">BIENVENIDO</span>
+
+                <h2>Iniciar sesión</h2>
+
+                <p class="login-descripcion">
+                    Ingresa tus datos para acceder a la plataforma.
+                </p>
+
+                <form id="formulario-login">
+
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            required
+                        />
+                    </div>
+
+                    <div class="campo">
+                        <label for="contrasena">Contraseña</label>
+                        <input
+                            type="password"
+                            id="contrasena"
+                            name="contrasena"
+                            placeholder="Ingresa tu contraseña"
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" class="boton-login">
+                        Ingresar
+                    </button>
+
+                </form>
+
+                <p id="mensaje-login"></p>
+
+                <p class="login-regreso">
+                    ¿No tienes una cuenta?
+                    <a href="index.html">Regresar al inicio</a>
+                </p>
+
+            </div>
+
+        </section>
+
     </main>
 
     <include src="footer.html"></include>
 
     <script type="module" src="/src/js/login.js"></script>
-</body>
 
+</body>
 </html>

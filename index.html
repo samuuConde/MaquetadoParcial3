@@ -1,24 +1,60 @@
+
 <!doctype html>
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio</title>
-  <link rel="stylesheet" href="/src/css/index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AguaAlerta | Inicio</title>
+    <link rel="stylesheet" href="/src/css/index.css" />
 </head>
 
 <body>
-  <include src="header.html"></include>
 
-  <main>
-    <h1>Hola</h1>
-    <p id="mensaje"></p>
-  </main>
+    <include src="header.html"></include>
 
-  <include src="footer.html"></include>
+    <main>
+        <section class="portada">
+            <div class="portada-fondo"></div>
 
-  <script type="module" src="/src/js/main.js"></script>
+            <div class="portada-contenido">
+                <span class="portada-etiqueta">CADA GOTA CUENTA</span>
+
+                <h1>El futuro del agua comienza con nosotros.</h1>
+
+                <p>
+                    Una comunidad informada puede hacer la diferencia.
+                    Reporta problemas, consulta depósitos y participa
+                    en el cuidado del agua.
+                </p>
+
+                <a href="login.html" class="boton-portada">
+                    Conoce AguaAlerta <span>→</span>
+                </a>
+            </div>
+
+            <div class="portada-indicador">
+                <span>01</span>
+                <span>AGUA PARA TODOS</span>
+            </div>
+        </section>
+
+        <section class="introduccion">
+            <span>¿QUÉ ES AGUAALERTA?</span>
+
+            <h2>El agua es un recurso que merece nuestra atención.</h2>
+
+            <p>
+                AguaAlerta busca conectar a los ciudadanos con la
+                gestión del agua, facilitando el reporte de incidencias
+                y la consulta de información sobre los depósitos.
+            </p>
+        </section>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/main.js"></script>
+
 </body>
-
 </html>
