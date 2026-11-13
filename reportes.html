@@ -13,20 +13,24 @@
 
     <main>
         <h1>Reportes</h1>
+        <a class="btn" href="reporte-form.html">Nuevo reporte</a>
 
         <p id="mensaje-reportes">Cargando reportes...</p>
 
-        <table id="tabla-reportes" hidden>
-            <thead>
-                <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">Colonia</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Fecha</th>
-                </tr>
-            </thead>
-            <tbody id="body-reportes"></tbody>
-        </table>
+        <div class="tabla-scroll">
+            <table id="tabla-reportes" hidden>
+                <thead>
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Colonia</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="body-reportes"></tbody>
+            </table>
+        </div>
     </main>
 
     <include src="footer.html"></include>

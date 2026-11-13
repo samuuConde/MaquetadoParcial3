@@ -1,30 +1,33 @@
 import { obtenerReporte } from './datos.js'
+import { idDeLaDireccion, ponerTexto } from './utilidades.js'
 
-const mensaje = document.querySelector('#mensaje-reporte')
-const detalle = document.querySelector('#detalle-reporte')
+const mensaje = document.getElementById('mensaje-reporte')
+const detalle = document.getElementById('detalle-reporte')
 
-async function mostrarReporte() {
-    // Lee el id de la dirección de reporte.html?id=2 
-    const id = Number(new URLSearchParams(location.search).get('id'))
+async function cargar() {
+    // El id llega de la dirección (reporte.html?id=2) como texto
+    const reporte = await obtenerReporte(Number(idDeLaDireccion()))
 
-    try {
-        const reporte = await obtenerReporte(id)
-
-        if (!reporte) {
-            mensaje.textContent = 'No existe ese reporte.'
-            return
-        }
-
-        document.querySelector('#titulo-reporte').textContent = reporte.titulo
-        document.querySelector('#colonia-reporte').textContent = reporte.colonia
-        document.querySelector('#estado-reporte').textContent = reporte.estado
-        document.querySelector('#fecha-reporte').textContent = reporte.fecha
-
-        mensaje.hidden = true
-        detalle.hidden = false
-    } catch {
-        mensaje.textContent = 'No se pudo cargar el reporte. Intenta más tarde.'
+    if (!reporte) {
+        mensaje.textContent = 'Reporte no encontrado.'
+        return
     }
+
+    ponerTexto('titulo-reporte', reporte.titulo)
+    ponerTexto('descripcion-reporte', reporte.descripcion ?? '')
+    ponerTexto('categoria-reporte', reporte.categoria ?? '')
+    ponerTexto('colonia-reporte', reporte.colonia)
+    ponerTexto('ubicacion-reporte', reporte.ubicacion ?? '')
+    ponerTexto('fecha-reporte', reporte.fecha_reporte ?? '')
+    ponerTexto('prioridad-reporte', reporte.nivel_prioridad ?? '')
+    ponerTexto('estado-reporte', reporte.estado)
+    document.getElementById('enlace-editar').href = 'reporte-form.html?id=' + reporte.id
+
+    mensaje.hidden = true
+    detalle.hidden = false
 }
 
-await mostrarReporte()
+cargar().catch((error) => {
+    console.error('Error al cargar el reporte:', error)
+    mensaje.textContent = 'No se pudo cargar la información del reporte.'
+})
