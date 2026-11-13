@@ -11,13 +11,47 @@
 <body>
     <include src="header.html"></include>
 
-   <main>
-    <h1>Inicio</h1>
+    <main>
+        <h1>Inicio</h1>
+        <button id="cerrar-sesion" class="btn btn-sec" type="button">Cerrar sesión</button>
 
-    <button id="cerrar-sesion" type="button">
-        Cerrar sesión
-    </button>
-</main>
+        <h2>Módulos</h2>
+        <div class="modulos">
+            <a class="tarjeta modulo" href="usuarios.html">
+                <h3>Usuarios</h3>
+                <p>Administra las cuentas del sistema.</p>
+            </a>
+            <a class="tarjeta modulo" href="reportes.html">
+                <h3>Reportes</h3>
+                <p>Fugas, falta de agua y otras incidencias.</p>
+            </a>
+            <a class="tarjeta modulo" href="depositos.html">
+                <h3>Depósitos</h3>
+                <p>Capacidad y nivel de agua almacenada.</p>
+            </a>
+        </div>
+
+        <h2>Resumen</h2>
+        <p id="mensaje-resumen">Cargando resumen...</p>
+        <div class="estadisticas" id="estadisticas" hidden>
+            <div class="tarjeta dato">
+                <strong id="total-usuarios"></strong>
+                <span>Usuarios</span>
+            </div>
+            <div class="tarjeta dato">
+                <strong id="reportes-pendientes"></strong>
+                <span>Reportes pendientes</span>
+            </div>
+            <div class="tarjeta dato">
+                <strong id="total-depositos"></strong>
+                <span>Depósitos</span>
+            </div>
+            <div class="tarjeta dato critico">
+                <strong id="depositos-bajos"></strong>
+                <span>Depósitos bajo 20%</span>
+            </div>
+        </div>
+    </main>
 
     <include src="footer.html"></include>
 

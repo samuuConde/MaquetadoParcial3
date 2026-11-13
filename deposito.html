@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle de dep&oacute;sito</title>
+    <title>Detalle de depósito</title>
     <link rel="stylesheet" href="/src/css/deposito.css" />
 </head>
 
@@ -12,7 +12,24 @@
     <include src="header.html"></include>
 
     <main>
-        <h1>Detalle de dep&oacute;sito</h1>
+        <a href="depositos.html">← Volver a depósitos</a>
+
+        <p id="mensaje-deposito">Cargando depósito...</p>
+
+        <article id="detalle-deposito" class="tarjeta" hidden>
+            <h1 id="nombre-deposito">Depósito</h1>
+            <p>Tipo: <span id="tipo-deposito"></span></p>
+            <p>Colonia: <span id="colonia-deposito"></span></p>
+            <p>Ubicación: <span id="ubicacion-deposito"></span></p>
+            <p>Capacidad: <span id="capacidad-deposito"></span> L</p>
+            <p>Nivel actual: <span id="nivel-deposito"></span> L</p>
+            <p>Llenado: <span id="porcentaje-deposito"></span>%</p>
+            <progress id="barra-nivel" max="100" value="0"></progress>
+            <p class="alerta" id="alerta-nivel" hidden>⚠ Nivel crítico: el depósito está por debajo del 20%.</p>
+            <p>Fecha de instalación: <span id="fecha-deposito"></span></p>
+            <p>Estado: <span id="estado-deposito"></span></p>
+            <a class="btn" id="enlace-editar" href="deposito-form.html">Editar</a>
+        </article>
     </main>
 
     <include src="footer.html"></include>

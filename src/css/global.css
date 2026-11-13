@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -59,7 +58,36 @@ body {
 
 .menu .menu-ingresar:hover {
     background-color: #159bb5;
-    color: white;
+}
+
+.pie {
+    padding: 24px 7%;
+    border-top: 1px solid #eeeeee;
+    color: #647783;
+    font-size: 13px;
+    text-align: center;
+}
+
+.pie .pie-titulo {
+    margin-bottom: 8px;
+    color: #123b50;
+    font-weight: bold;
+}
+
+.pie-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+}
+
+.pie-contacto a {
+    color: #647783;
+    text-decoration: none;
+}
+
+.pie-contacto a:hover {
+    color: #159bb5;
 }
 
 @media (max-width: 650px) {
@@ -72,5 +100,191 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 18px;
+    }
+}
+
+/* Solo las páginas cuyo <main> tiene contenido directo (no la portada ni el login,
+   que usan <section>) */
+main:has(> :not(section)) {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+
+    & h1 {
+        color: #123b50;
+        font-family: Georgia, serif;
+        font-size: 2rem;
+        font-weight: normal;
+        margin: 20px 0 24px;
+    }
+
+        & > a:first-child {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #159bb5;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    & > a:first-child:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid #123b50;
+    border-radius: 4px;
+    background-color: #123b50;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #159bb5;
+    border-color: #159bb5;
+}
+
+.btn-sec {
+    background-color: transparent;
+    color: #123b50;
+}
+
+.btn-sec:hover {
+    background-color: #123b50;
+    border-color: #123b50;
+    color: #ffffff;
+}
+
+/* Tarjetas */
+.tarjeta {
+    padding: 28px;
+    border: 1px solid #e3eaee;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+/* Tablas */
+.tabla-scroll {
+    margin-top: 24px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e3eaee;
+    text-align: left;
+}
+
+th {
+    background-color: #123b50;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f3f9fb;
+}
+
+td a {
+    color: #159bb5;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Formularios */
+form.tarjeta {
+    max-width: 640px;
+}
+
+form.tarjeta label {
+    display: block;
+    margin: 18px 0 6px;
+    color: #183b4e;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+form.tarjeta input,
+form.tarjeta select,
+form.tarjeta textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9e1e5;
+    border-radius: 3px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+form.tarjeta input:focus,
+form.tarjeta select:focus,
+form.tarjeta textarea:focus {
+    border-color: #159bb5;
+    outline: none;
+}
+
+form .btn {
+    margin-top: 24px;
+    margin-right: 10px;
+}
+
+/* Mensajes */
+.error {
+    display: block;
+    margin-top: 4px;
+    color: #c0392b;
+    font-size: 13px;
+}
+
+.alerta {
+    color: #b91c1c;
+    font-weight: bold;
+}
+
+#mensaje-form {
+    margin-top: 20px;
+    color: #123b50;
+    font-weight: bold;
+}
+
+/* Detalles */
+article.tarjeta p {
+    margin: 10px 0;
+}
+
+progress {
+    width: 100%;
+    height: 14px;
+    margin: 8px 0;
+}
+
+@media (max-width: 650px) {
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .tarjeta {
+        padding: 20px;
     }
 }

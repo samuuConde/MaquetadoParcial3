@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario de dep&oacute;sito</title>
+    <title>Formulario de depósito</title>
     <link rel="stylesheet" href="/src/css/deposito-form.css" />
 </head>
 
@@ -12,7 +12,57 @@
     <include src="header.html"></include>
 
     <main>
-        <h1>Formulario de dep&oacute;sito</h1>
+        <a href="depositos.html">← Volver a depósitos</a>
+        <h1 id="titulo-form">Nuevo depósito</h1>
+
+        <form id="form-deposito" class="tarjeta" novalidate>
+            <label for="nombre_deposito">Nombre del depósito</label>
+            <input type="text" id="nombre_deposito" name="nombre_deposito" />
+            <span class="error" id="error-nombre_deposito"></span>
+
+            <label for="tipo_deposito">Tipo</label>
+            <select id="tipo_deposito" name="tipo_deposito">
+                <option value="">Selecciona el tipo</option>
+                <option value="Cisterna">Cisterna</option>
+                <option value="Tanque elevado">Tanque elevado</option>
+                <option value="Tanque comunitario">Tanque comunitario</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <span class="error" id="error-tipo_deposito"></span>
+
+            <label for="colonia">Colonia</label>
+            <select id="colonia" name="colonia">
+                <option value="">Selecciona la colonia</option>
+            </select>
+            <span class="error" id="error-colonia"></span>
+
+            <label for="ubicacion">Ubicación</label>
+            <input type="text" id="ubicacion" name="ubicacion" />
+            <span class="error" id="error-ubicacion"></span>
+
+            <label for="capacidad_litros">Capacidad (litros)</label>
+            <input type="number" id="capacidad_litros" name="capacidad_litros" min="1" />
+            <span class="error" id="error-capacidad_litros"></span>
+
+            <label for="nivel_actual_litros">Nivel actual (litros)</label>
+            <input type="number" id="nivel_actual_litros" name="nivel_actual_litros" min="0" />
+            <span class="error" id="error-nivel_actual_litros"></span>
+
+            <label for="fecha_instalacion">Fecha de instalación</label>
+            <input type="date" id="fecha_instalacion" name="fecha_instalacion" />
+            <span class="error" id="error-fecha_instalacion"></span>
+
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+                <option value="Activo">Activo</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+
+            <p id="mensaje-form"></p>
+            <button class="btn" type="submit">Guardar</button>
+            <a class="btn btn-sec" href="depositos.html">Cancelar</a>
+        </form>
     </main>
 
     <include src="footer.html"></include>

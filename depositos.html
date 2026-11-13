@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dep&oacute;sitos</title>
+    <title>Depósitos</title>
     <link rel="stylesheet" href="/src/css/depositos.css" />
 </head>
 
@@ -12,7 +12,27 @@
     <include src="header.html"></include>
 
     <main>
-        <h1>Dep&oacute;sitos</h1>
+        <a href="home.html">← Volver al inicio</a>
+        <h1>Depósitos</h1>
+        <a class="btn" href="deposito-form.html">Nuevo depósito</a>
+
+        <p id="mensaje-depositos">Cargando depósitos...</p>
+
+        <div class="tabla-scroll">
+            <table id="tabla-depositos" hidden>
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Capacidad (L)</th>
+                        <th scope="col">Nivel actual (L)</th>
+                        <th scope="col">% llenado</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="body-depositos"></tbody>
+            </table>
+        </div>
     </main>
 
     <include src="footer.html"></include>
