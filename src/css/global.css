@@ -68,8 +68,26 @@ body {
     text-align: center;
 }
 
-.pie p {
-    margin: 0;
+.pie .pie-titulo {
+    margin-bottom: 8px;
+    color: #123b50;
+    font-weight: bold;
+}
+
+.pie-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+}
+
+.pie-contacto a {
+    color: #647783;
+    text-decoration: none;
+}
+
+.pie-contacto a:hover {
+    color: #159bb5;
 }
 
 @media (max-width: 650px) {
