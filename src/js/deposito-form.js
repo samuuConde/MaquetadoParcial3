@@ -49,7 +49,7 @@ function validar() {
     }
 
     for (const campo of CAMPOS) {
-        document.getElementById(error-${campo}).textContent = errores[campo] ?? ''
+    document.getElementById(`error-${campo}`).textContent = errores[campo] ?? ''
     }
     return Object.keys(errores).length === 0
 }
@@ -98,13 +98,11 @@ formulario.addEventListener('submit', (evento) => {
     }, 1000)
 })
 
-async function iniciar() {
+try {
     // Las colonias se cargan primero para poder seleccionar la del registro al editar
     await cargarColonias()
     if (esEdicion) await cargarEdicion()
-}
-
-iniciar().catch((error) => {
+} catch (error) {
     console.error('Error al cargar el depósito:', error)
     mensajeForm.textContent = 'No se pudo cargar la información del depósito.'
-})
+}
