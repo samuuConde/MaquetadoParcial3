@@ -100,10 +100,12 @@ main:has(> :not(section)) {
         margin: 20px 0 24px;
     }
 
-    & > a:first-child {
+        & > a:first-child {
         display: inline-block;
+        margin-bottom: 8px;
         color: #159bb5;
-        font-size: 14px;
+        font-size: 18px;
+        font-weight: bold;
         text-decoration: none;
     }
 
