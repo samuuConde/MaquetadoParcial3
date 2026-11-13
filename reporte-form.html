@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de reporte</title>
+    <link rel="stylesheet" href="/src/css/reporte-form.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="reportes.html">← Volver a reportes</a>
+        <h1 id="titulo-form">Nuevo reporte</h1>
+
+        <form id="form-reporte" class="tarjeta" novalidate>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" />
+            <span class="error" id="error-titulo"></span>
+
+            <label for="descripcion">Descripción del problema</label>
+            <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+            <span class="error" id="error-descripcion"></span>
+
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+                <option value="">Selecciona una categoría</option>
+                <option value="Fuga de agua">Fuga de agua</option>
+                <option value="Tubería dañada">Tubería dañada</option>
+                <option value="Falta de suministro">Falta de suministro</option>
+                <option value="Baja presión">Baja presión</option>
+                <option value="Depósito vacío">Depósito vacío</option>
+            </select>
+            <span class="error" id="error-categoria"></span>
+
+            <label for="colonia">Colonia</label>
+            <select id="colonia" name="colonia">
+                <option value="">Selecciona la colonia</option>
+            </select>
+            <span class="error" id="error-colonia"></span>
+
+            <label for="ubicacion">Ubicación</label>
+            <input type="text" id="ubicacion" name="ubicacion" />
+            <span class="error" id="error-ubicacion"></span>
+
+            <label for="fecha_reporte">Fecha</label>
+            <input type="date" id="fecha_reporte" name="fecha_reporte" />
+            <span class="error" id="error-fecha_reporte"></span>
+
+            <label for="nivel_prioridad">Prioridad</label>
+            <select id="nivel_prioridad" name="nivel_prioridad">
+                <option value="">Selecciona la prioridad</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+            <span class="error" id="error-nivel_prioridad"></span>
+
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+                <option value="Pendiente">Pendiente</option>
+                <option value="En proceso">En proceso</option>
+                <option value="Atendido">Atendido</option>
+            </select>
+
+            <label for="fotografia">Fotografía de evidencia (opcional)</label>
+            <input type="file" id="fotografia" name="fotografia" accept="image/*" />
+
+            <p id="mensaje-form"></p>
+            <button class="btn" type="submit">Guardar</button>
+            <a class="btn btn-sec" href="reportes.html">Cancelar</a>
+        </form>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/reporte-form.js"></script>
+</body>
+
+</html>

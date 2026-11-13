@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de usuario</title>
+    <link rel="stylesheet" href="/src/css/usuario.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="usuarios.html">← Volver a usuarios</a>
+
+        <p id="mensaje-usuario">Cargando usuario...</p>
+
+        <article id="detalle-usuario" class="tarjeta" hidden>
+            <h1 id="nombre-usuario">Usuario</h1>
+            <p>Correo: <span id="correo-usuario"></span></p>
+            <p>Teléfono: <span id="telefono-usuario"></span></p>
+            <p>Rol: <span id="rol-usuario"></span></p>
+            <p>Fecha de registro: <span id="fecha-usuario"></span></p>
+            <p>Estado: <span id="estado-usuario"></span></p>
+            <a class="btn" id="enlace-editar" href="usuario-form.html">Editar</a>
+        </article>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/usuario.js"></script>
+</body>
+
+</html>

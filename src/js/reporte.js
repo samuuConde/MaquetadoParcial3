@@ -1,30 +1,33 @@
 import { obtenerReporte } from './datos.js'
 
-const mensaje = document.querySelector('#mensaje-reporte')
-const detalle = document.querySelector('#detalle-reporte')
+const mensaje = document.getElementById('mensaje-reporte')
+const detalle = document.getElementById('detalle-reporte')
 
-async function mostrarReporte() {
-    // Lee el id de la dirección de reporte.html?id=2 
-    const id = Number(new URLSearchParams(location.search).get('id'))
+async function cargar() {
+    // El id llega de la dirección (reporte.html?id=2) como texto
+    const id = Number(new URLSearchParams(window.location.search).get('id'))
+    const reporte = await obtenerReporte(id)
 
-    try {
-        const reporte = await obtenerReporte(id)
-
-        if (!reporte) {
-            mensaje.textContent = 'No existe ese reporte.'
-            return
-        }
-
-        document.querySelector('#titulo-reporte').textContent = reporte.titulo
-        document.querySelector('#colonia-reporte').textContent = reporte.colonia
-        document.querySelector('#estado-reporte').textContent = reporte.estado
-        document.querySelector('#fecha-reporte').textContent = reporte.fecha
-
-        mensaje.hidden = true
-        detalle.hidden = false
-    } catch {
-        mensaje.textContent = 'No se pudo cargar el reporte. Intenta más tarde.'
+    if (!reporte) {
+        mensaje.textContent = 'Reporte no encontrado.'
+        return
     }
+
+    document.getElementById('titulo-reporte').textContent = reporte.titulo
+    document.getElementById('descripcion-reporte').textContent = reporte.descripcion ?? ''
+    document.getElementById('categoria-reporte').textContent = reporte.categoria ?? ''
+    document.getElementById('colonia-reporte').textContent = reporte.colonia
+    document.getElementById('ubicacion-reporte').textContent = reporte.ubicacion ?? ''
+    document.getElementById('fecha-reporte').textContent = reporte.fecha_reporte ?? ''
+    document.getElementById('prioridad-reporte').textContent = reporte.nivel_prioridad ?? ''
+    document.getElementById('estado-reporte').textContent = reporte.estado
+    document.getElementById('enlace-editar').href = `reporte-form.html?id=${reporte.id}`
+
+    mensaje.hidden = true
+    detalle.hidden = false
 }
 
-await mostrarReporte()
+cargar().catch((error) => {
+    console.error('Error al cargar el reporte:', error)
+    mensaje.textContent = 'No se pudo cargar la información del reporte.'
+})
