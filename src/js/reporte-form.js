@@ -1,3 +1,4 @@
+import './sesion.js'
 import { obtenerColonias, obtenerReporte } from './datos.js'
 import {
     agregarOpciones,
