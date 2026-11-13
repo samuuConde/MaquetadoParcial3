@@ -1,1 +1,19 @@
 @import './global.css';
+
+.estadisticas,
+.modulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.modulos { margin-bottom: 2rem; }
+
+.dato strong { display: block; font-size: 2rem; color: #123b50; }
+.dato span { color: #647783; }
+.dato.critico strong { color: #b91c1c; }
+
+.modulo { text-decoration: none; color: inherit; }
+.modulo:hover { border-color: #159bb5; box-shadow: 0 2px 8px rgb(18 59 80 / 12%); }
+.modulo p { margin: 0; color: #647783; }
+
