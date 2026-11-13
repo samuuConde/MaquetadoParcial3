@@ -1,3 +1,4 @@
+
 import { obtenerUsuario } from './datos.js'
 
 const idParam = new URLSearchParams(window.location.search).get('id')
@@ -17,15 +18,19 @@ function validar() {
     if (valor('nombre_usuario').length < 3) {
         errores.nombre_usuario = 'Escribe al menos 3 caracteres.'
     }
-    if (!/^\S+@\S+\.\S+$/.test(valor('correo'))) {
+
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor('correo'))) {
         errores.correo = 'Escribe un correo válido.'
     }
+
     if (!esEdicion && valor('contrasena').length < 6) {
         errores.contrasena = 'La contraseña debe tener al menos 6 caracteres.'
     }
+
     if (!/^\d{10}$/.test(valor('telefono').replace(/\s/g, ''))) {
         errores.telefono = 'Escribe un teléfono de 10 dígitos.'
     }
+
     if (valor('rol') === '') {
         errores.rol = 'Selecciona un rol.'
     }
@@ -33,6 +38,7 @@ function validar() {
     for (const campo of CAMPOS) {
         document.getElementById(`error-${campo}`).textContent = errores[campo] ?? ''
     }
+
     return Object.keys(errores).length === 0
 }
 
@@ -62,9 +68,15 @@ formulario.addEventListener('submit', (evento) => {
 
     // Maquetado: todavía no se guarda en ningún lado (en el ordinario será la API)
     mensajeForm.textContent = 'Usuario guardado correctamente.'
+
     setTimeout(() => {
         window.location.href = 'usuarios.html'
     }, 1000)
 })
 
-if (esEdicion) cargarEdicion()
+if (esEdicion) {
+    cargarEdicion().catch(error => {
+        console.error('Error al cargar el usuario:', error)
+        mensajeForm.textContent = 'No se pudo cargar la información del usuario.'
+    })
+}

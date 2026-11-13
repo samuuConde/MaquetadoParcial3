@@ -1,3 +1,4 @@
+
 import { obtenerUsuario } from './datos.js'
 
 const mensaje = document.getElementById('mensaje-usuario')
@@ -25,4 +26,7 @@ async function cargar() {
     detalle.hidden = false
 }
 
-cargar()
+cargar().catch(error => {
+    console.error('Error al cargar el usuario:', error)
+    mensaje.textContent = 'No se pudo cargar la información del usuario.'
+})

@@ -1,3 +1,4 @@
+
 import { obtenerUsuarios } from './datos.js'
 
 const mensaje = document.getElementById('mensaje-usuarios')
@@ -49,4 +50,7 @@ async function cargar() {
     tabla.hidden = false
 }
 
-cargar()
+cargar().catch(error => {
+    console.error('Error al cargar los usuarios:', error)
+    mensaje.textContent = 'No se pudieron cargar los usuarios.'
+})
