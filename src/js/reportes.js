@@ -1,3 +1,4 @@
+import './sesion.js'
 import { obtenerReportes } from './datos.js'
 import { celda, enlace } from './utilidades.js'
 

@@ -1,3 +1,4 @@
+import './sesion.js'
 import { obtenerDepositos } from './datos.js'
 
 const mensaje = document.getElementById('mensaje-depositos')
