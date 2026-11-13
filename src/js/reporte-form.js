@@ -1,6 +1,13 @@
 import { obtenerColonias, obtenerReporte } from './datos.js'
+import {
+    agregarOpciones,
+    guardarYVolver,
+    idDeLaDireccion,
+    mostrarErrores,
+    valor,
+} from './utilidades.js'
 
-const idParam = new URLSearchParams(window.location.search).get('id')
+const idParam = idDeLaDireccion()
 const esEdicion = idParam !== null
 const formulario = document.getElementById('form-reporte')
 const titulo = document.getElementById('titulo-form')
@@ -14,10 +21,6 @@ const CAMPOS = [
     'fecha_reporte',
     'nivel_prioridad',
 ]
-
-function valor(nombre) {
-    return document.getElementById(nombre).value.trim()
-}
 
 function validar() {
     const errores = {}
@@ -44,21 +47,7 @@ function validar() {
         errores.nivel_prioridad = 'Selecciona la prioridad.'
     }
 
-    for (const campo of CAMPOS) {
-        document.getElementById(`error-${campo}`).textContent = errores[campo] ?? ''
-    }
-    return Object.keys(errores).length === 0
-}
-
-async function cargarColonias() {
-    const select = document.getElementById('colonia')
-    const colonias = await obtenerColonias()
-    for (const colonia of colonias) {
-        const opcion = document.createElement('option')
-        opcion.value = colonia
-        opcion.textContent = colonia
-        select.append(opcion)
-    }
+    return mostrarErrores(CAMPOS, errores)
 }
 
 async function cargarEdicion() {
@@ -71,14 +60,9 @@ async function cargarEdicion() {
     }
 
     titulo.textContent = 'Editar reporte'
-    document.getElementById('titulo').value = reporte.titulo
-    document.getElementById('descripcion').value = reporte.descripcion ?? ''
-    document.getElementById('categoria').value = reporte.categoria ?? ''
-    document.getElementById('colonia').value = reporte.colonia
-    document.getElementById('ubicacion').value = reporte.ubicacion ?? ''
-    document.getElementById('fecha_reporte').value = reporte.fecha_reporte ?? ''
-    document.getElementById('nivel_prioridad').value = reporte.nivel_prioridad ?? ''
-    document.getElementById('estado').value = reporte.estado
+    for (const campo of [...CAMPOS, 'estado']) {
+        document.getElementById(campo).value = reporte[campo] ?? ''
+    }
 }
 
 formulario.addEventListener('submit', (evento) => {
@@ -87,16 +71,12 @@ formulario.addEventListener('submit', (evento) => {
 
     if (!validar()) return
 
-    // Maquetado: todavía no se guarda en ningún lado (en el ordinario será la API)
-    mensajeForm.textContent = 'Reporte guardado correctamente.'
-    setTimeout(() => {
-        window.location.href = 'reportes.html'
-    }, 1000)
+    guardarYVolver(mensajeForm, 'Reporte guardado correctamente.', 'reportes.html')
 })
 
 async function iniciar() {
     // Las colonias se cargan primero para poder seleccionar la del registro al editar
-    await cargarColonias()
+    agregarOpciones('colonia', await obtenerColonias())
     if (esEdicion) await cargarEdicion()
 }
 

@@ -1,21 +1,9 @@
 import { obtenerReportes } from './datos.js'
+import { celda, enlace } from './utilidades.js'
 
 const mensaje = document.getElementById('mensaje-reportes')
 const tabla = document.getElementById('tabla-reportes')
 const cuerpo = document.getElementById('body-reportes')
-
-function celda(texto) {
-    const td = document.createElement('td')
-    td.textContent = texto
-    return td
-}
-
-function enlace(texto, href) {
-    const a = document.createElement('a')
-    a.textContent = texto
-    a.href = href
-    return a
-}
 
 async function cargar() {
     const reportes = await obtenerReportes()
@@ -27,13 +15,13 @@ async function cargar() {
 
     for (const reporte of reportes) {
         const celdaTitulo = document.createElement('td')
-        celdaTitulo.append(enlace(reporte.titulo, `reporte.html?id=${reporte.id}`))
+        celdaTitulo.append(enlace(reporte.titulo, 'reporte.html?id=' + reporte.id))
 
         const acciones = document.createElement('td')
         acciones.append(
-            enlace('Ver', `reporte.html?id=${reporte.id}`),
+            enlace('Ver', 'reporte.html?id=' + reporte.id),
             ' ',
-            enlace('Editar', `reporte-form.html?id=${reporte.id}`),
+            enlace('Editar', 'reporte-form.html?id=' + reporte.id),
         )
 
         const fila = document.createElement('tr')
