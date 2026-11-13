@@ -13,6 +13,25 @@
 
     <main>
         <h1>Usuarios</h1>
+        <a class="btn" href="usuario-form.html">Nuevo usuario</a>
+
+        <p id="mensaje-usuarios">Cargando usuarios...</p>
+
+        <div class="tabla-scroll">
+            <table id="tabla-usuarios" hidden>
+                <thead>
+                    <tr>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="body-usuarios"></tbody>
+            </table>
+        </div>
     </main>
 
     <include src="footer.html"></include>
