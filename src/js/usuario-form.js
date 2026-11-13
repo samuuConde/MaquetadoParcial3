@@ -19,7 +19,7 @@ function validar() {
         errores.nombre_usuario = 'Escribe al menos 3 caracteres.'
     }
 
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor('correo'))) {
+        if (valor('correo') === '' || !document.getElementById('correo').checkValidity()) {
         errores.correo = 'Escribe un correo válido.'
     }
 
