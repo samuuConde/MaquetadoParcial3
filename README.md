@@ -14,7 +14,7 @@ consultan con funciones async. En el ordinario se conectarán a la API.
 
 ## Sitio publicado
 
-https://maquetado-parcial3.vercel.app
+https://maquetado-parcial3.vercel.app/
 
 ## Pantallas
 
