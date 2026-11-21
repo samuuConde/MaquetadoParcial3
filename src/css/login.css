@@ -1,7 +1,5 @@
 @import './global.css';
 
-@import './global.css';
-
 .login-contenedor {
     min-height: 650px;
     display: grid;
@@ -126,10 +124,18 @@
     font-weight: bold;
 }
 
-#mensaje-login {
-    color: #c0392b;
-    font-size: 13px;
-    text-align: center;
+.error {
+    padding: 0.7rem 0.85rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background: #fbeaea;
+    color: #9b1c1c;
+    font-size: 0.9rem;
+}
+
+.boton-login:disabled {
+    opacity: 0.6;
+    cursor: wait;
 }
 
 @media (max-width: 800px) {
