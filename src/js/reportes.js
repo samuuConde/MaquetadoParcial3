@@ -1,4 +1,4 @@
-import './sesion.js'
+import './paginas.js'
 import { obtenerReportes } from './datos.js'
 import { celda, enlace } from './utilidades.js'
 

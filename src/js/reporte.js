@@ -1,4 +1,4 @@
-import './sesion.js'
+import './paginas.js'
 import { obtenerReporte } from './datos.js'
 import { idDeLaDireccion, ponerTexto } from './utilidades.js'
 

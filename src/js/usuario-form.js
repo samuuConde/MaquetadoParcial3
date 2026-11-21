@@ -1,4 +1,4 @@
-import './sesion.js'
+import './paginas.js'
 
 import { obtenerUsuario } from './datos.js'
 

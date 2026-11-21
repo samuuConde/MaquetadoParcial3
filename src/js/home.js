@@ -1,19 +1,23 @@
+import './paginas.js'
+import { api } from './api.js'
 import { obtenerDepositos, obtenerReportes, obtenerUsuarios } from './datos.js'
-
-// Si no ha iniciado sesión, regresa al login
-if (sessionStorage.getItem('sesionActiva') !== 'true') {
-    window.location.href = 'login.html'
-}
-
-// Cerrar sesión
-document.getElementById('cerrar-sesion').addEventListener('click', () => {
-    sessionStorage.removeItem('sesionActiva')
-    sessionStorage.removeItem('correoUsuario')
-    window.location.href = 'login.html'
-})
+import { puedeEntrar } from './permisos.js'
+import { obtenerUsuario } from './sesion.js'
 
 const mensaje = document.getElementById('mensaje-resumen')
 const estadisticas = document.getElementById('estadisticas')
+
+// Quita las tarjetas de los módulos que el rol no puede ver
+for (const tarjeta of document.querySelectorAll('.modulos a')) {
+    const pagina = tarjeta.getAttribute('href').replace('.html', '')
+    if (!puedeEntrar(pagina, obtenerUsuario().role)) tarjeta.remove()
+}
+
+// Pregunta al API quién es el usuario, enviando el token
+async function cargarSaludo() {
+    const yo = await api.get('/api/auth/yo')
+    document.getElementById('saludo-nombre').textContent = yo.name.split(' ')[0]
+}
 
 async function cargarResumen() {
     const [usuarios, reportes, depositos] = await Promise.all([
@@ -35,6 +39,11 @@ async function cargarResumen() {
     mensaje.hidden = true
     estadisticas.hidden = false
 }
+
+cargarSaludo().catch((error) => {
+    console.error('Error al validar la sesión:', error)
+    document.getElementById('saludo-nombre').textContent = obtenerUsuario().name.split(' ')[0]
+})
 
 cargarResumen().catch((error) => {
     console.error('Error al cargar el resumen:', error)
