@@ -1,22 +1,29 @@
+import { api } from './api.js'
+import { guardarSesion, obtenerUsuario } from './sesion.js'
 
-const formulario = document.getElementById("formulario-login");
+if (obtenerUsuario()) location.replace('home.html')
 
-formulario.addEventListener("submit", function (evento) {
-    evento.preventDefault();
+const formulario = document.querySelector('#form-login')
+const error = document.querySelector('#error-login')
+const boton = formulario.querySelector('button')
 
-    const correo = document.getElementById("correo").value.trim();
-    const contrasena = document.getElementById("contrasena").value.trim();
-    const mensaje = document.getElementById("mensaje-login");
+formulario.addEventListener('submit', async (evento) => {
+    evento.preventDefault()
+    error.hidden = true
+    boton.disabled = true
+    boton.textContent = 'Entrando...'
 
-    if (correo === "" || contrasena === "") {
-        mensaje.textContent = "Completa todos los campos.";
-        return;
+    try {
+        const datos = Object.fromEntries(new FormData(formulario))
+        const respuesta = await api.post('/api/auth/login', datos)
+
+        guardarSesion(respuesta.token, respuesta.user)
+        location.href = 'home.html'
+    } catch (e) {
+        error.textContent = e.message
+        error.hidden = false
+    } finally {
+        boton.disabled = false
+        boton.textContent = 'Ingresar'
     }
-
-    // Guardamos que el usuario inició sesión
-    sessionStorage.setItem("sesionActiva", "true");
-    sessionStorage.setItem("correoUsuario", correo);
-
-    // Redirigimos al panel principal
-    window.location.href = "home.html";
-});
+})
