@@ -30,6 +30,61 @@
             <p>Estado: <span id="estado-deposito"></span></p>
             <a class="btn" id="enlace-editar" href="deposito-form.html">Editar</a>
         </article>
+
+        <div id="extra-deposito" hidden>
+            <h2 class="seccion">Sensores</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Instalación</th>
+                            <th scope="col">Última conexión</th>
+                            <th scope="col">Último nivel (L)</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-sensores"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Lecturas</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Sensor</th>
+                            <th scope="col">Nivel (L)</th>
+                            <th scope="col">% llenado</th>
+                            <th scope="col">Temperatura (°C)</th>
+                            <th scope="col">Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-lecturas"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Abastecimientos</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Fuente</th>
+                            <th scope="col">Tipo de fuente</th>
+                            <th scope="col">Responsable</th>
+                            <th scope="col">Litros recibidos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-abastecimientos"></tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <include src="footer.html"></include>

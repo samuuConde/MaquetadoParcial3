@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infraestructura</title>
+    <link rel="stylesheet" href="/src/css/infraestructura.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="home.html">← Volver al inicio</a>
+        <h1>Infraestructura</h1>
+
+        <p id="mensaje-infraestructura">Cargando infraestructura...</p>
+
+        <div id="contenido" hidden>
+            <h2 class="seccion">Redes hidráulicas</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Red</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Longitud (m)</th>
+                            <th scope="col">Instalación</th>
+                            <th scope="col">Tuberías</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-redes"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Tuberías</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Red</th>
+                            <th scope="col">Material</th>
+                            <th scope="col">Diámetro (pulg)</th>
+                            <th scope="col">Longitud (m)</th>
+                            <th scope="col">Instalación</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Ubicación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-tuberias"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/infraestructura.js"></script>
+</body>
+
+</html>
