@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Técnicos</title>
+    <link rel="stylesheet" href="/src/css/tecnicos.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="home.html">← Volver al inicio</a>
+        <h1>Técnicos</h1>
+
+        <p id="mensaje-tecnicos">Cargando técnicos...</p>
+
+        <div id="contenido" hidden>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Contratación</th>
+                            <th scope="col">Disponibilidad</th>
+                            <th scope="col">Reportes asignados</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-tecnicos"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Asignaciones</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Reporte</th>
+                            <th scope="col">Técnico</th>
+                            <th scope="col">Asignación</th>
+                            <th scope="col">Inicio</th>
+                            <th scope="col">Término</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-asignaciones"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Mantenimientos</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Técnico</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Elemento</th>
+                            <th scope="col">Costo</th>
+                            <th scope="col">Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-mantenimientos"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/tecnicos.js"></script>
+</body>
+
+</html>
