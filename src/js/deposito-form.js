@@ -1,4 +1,4 @@
-import './sesion.js'
+import './paginas.js'
 import { obtenerColonias, obtenerDeposito } from './datos.js'
 
 const idParam = new URLSearchParams(window.location.search).get('id')
