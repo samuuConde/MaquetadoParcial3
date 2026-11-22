@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ciudadanos</title>
+    <link rel="stylesheet" href="/src/css/ciudadanos.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="home.html">← Volver al inicio</a>
+        <h1>Ciudadanos</h1>
+
+        <p id="mensaje-ciudadanos">Cargando ciudadanos...</p>
+
+        <div id="contenido" hidden>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Reportes enviados</th>
+                            <th scope="col">Viviendas relacionadas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-ciudadanos"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Viviendas</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Colonia</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Habitantes</th>
+                            <th scope="col">Referencia</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-viviendas"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Colonias</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Colonia</th>
+                            <th scope="col">Municipio</th>
+                            <th scope="col">C.P.</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Latitud</th>
+                            <th scope="col">Longitud</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-colonias"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/ciudadanos.js"></script>
+</body>
+
+</html>

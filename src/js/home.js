@@ -1,6 +1,6 @@
 import './paginas.js'
 import { api } from './api.js'
-import { obtenerDepositos, obtenerReportes, obtenerUsuarios } from './datos.js'
+import { obtenerDepositos, obtenerNotificaciones, obtenerReportes, obtenerUsuarios } from './datos.js'
 import { puedeEntrar } from './permisos.js'
 import { obtenerUsuario } from './sesion.js'
 
@@ -20,12 +20,12 @@ async function cargarSaludo() {
 }
 
 async function cargarResumen() {
-    const [usuarios, reportes, depositos] = await Promise.all([
+       const [usuarios, reportes, depositos, notificaciones] = await Promise.all([
         obtenerUsuarios(),
         obtenerReportes(),
         obtenerDepositos(),
+        obtenerNotificaciones(),
     ])
-
     const pendientes = reportes.filter((reporte) => reporte.estado === 'Pendiente')
     const bajos = depositos.filter(
         (deposito) => deposito.nivel_actual_litros / deposito.capacidad_litros < 0.2,
@@ -35,6 +35,9 @@ async function cargarResumen() {
     document.getElementById('reportes-pendientes').textContent = pendientes.length
     document.getElementById('total-depositos').textContent = depositos.length
     document.getElementById('depositos-bajos').textContent = bajos.length
+        document.getElementById('alertas-sin-leer').textContent = notificaciones.filter(
+        (alerta) => alerta.estado === 'No leída',
+    ).length
 
     mensaje.hidden = true
     estadisticas.hidden = false

@@ -50,3 +50,63 @@ export function guardarYVolver(elementoMensaje, texto, destino) {
         window.location.href = destino
     }, 1000)
 }
+
+// ---------- Para las pantallas con tablas de la base de datos ----------
+
+// Llena un <tbody>. Cada fila es una lista de textos (o de elementos, como un enlace)
+export function llenarTabla(idCuerpo, filas, columnas) {
+    const cuerpo = document.getElementById(idCuerpo)
+    cuerpo.replaceChildren()
+
+    if (filas.length === 0) {
+        const vacia = celda('Sin registros.')
+        vacia.colSpan = columnas
+        const fila = document.createElement('tr')
+        fila.append(vacia)
+        cuerpo.append(fila)
+        return
+    }
+
+    for (const datos of filas) {
+        const fila = document.createElement('tr')
+        for (const dato of datos) {
+            if (dato instanceof Node) {
+                const td = document.createElement('td')
+                td.append(dato)
+                fila.append(td)
+            } else {
+                fila.append(celda(dato ?? ''))
+            }
+        }
+        cuerpo.append(fila)
+    }
+}
+
+export function litros(cantidad) {
+    return Number(cantidad).toLocaleString('es-MX')
+}
+
+export function dinero(cantidad) {
+    return Number(cantidad).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
+}
+
+const colores = {
+    ok: ['Activo', 'Disponible', 'Resuelto', 'Terminado', 'Leída', 'Buen estado', 'Reparada'],
+    aviso: ['En proceso', 'Ocupado', 'Mantenimiento', 'Pendiente'],
+    mal: ['Desconectado', 'No leída', 'Inactivo'],
+}
+
+// Estado con color: verde, amarillo o rojo
+export function etiquetaEstado(texto) {
+    const span = document.createElement('span')
+    span.className = 'etiqueta ' + (Object.keys(colores).find((tipo) => colores[tipo].includes(texto)) ?? '')
+    span.textContent = texto
+    return span
+}
+
+// Los dos enlaces "Ver" y "Editar" de una fila
+export function accionesFila(hrefVer, hrefEditar) {
+    const caja = document.createElement('span')
+    caja.append(enlace('Ver', hrefVer), ' ', enlace('Editar', hrefEditar))
+    return caja
+}

@@ -7,6 +7,10 @@ export const permisos = {
     depositos: ['admin', 'tecnico'],
     deposito: ['admin', 'tecnico'],
     'deposito-form': ['admin', 'tecnico'],
+    tecnicos: ['admin'],
+    ciudadanos: ['admin'],
+    infraestructura: ['admin', 'tecnico'],
+    notificaciones: ['admin', 'tecnico'],
 }
 
 export function puedeEntrar(pagina, rol) {
