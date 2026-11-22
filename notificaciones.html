@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notificaciones</title>
+    <link rel="stylesheet" href="/src/css/notificaciones.css" />
+</head>
+
+<body>
+    <include src="header.html"></include>
+
+    <main>
+        <a href="home.html">← Volver al inicio</a>
+        <h1>Notificaciones</h1>
+
+        <p id="mensaje-notificaciones">Cargando notificaciones...</p>
+
+        <div id="contenido" hidden>
+            <p>Alertas sin leer: <strong id="total-sin-leer"></strong></p>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Alerta</th>
+                            <th scope="col">Mensaje</th>
+                            <th scope="col">Origen</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-notificaciones"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/notificaciones.js"></script>
+</body>
+
+</html>

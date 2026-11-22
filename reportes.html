@@ -12,25 +12,44 @@
     <include src="header.html"></include>
 
     <main>
-         <a href="home.html">← Volver al inicio</a>
+        <a href="home.html">← Volver al inicio</a>
         <h1>Reportes</h1>
         <a class="btn" href="reporte-form.html">Nuevo reporte</a>
 
         <p id="mensaje-reportes">Cargando reportes...</p>
 
-        <div class="tabla-scroll">
-            <table id="tabla-reportes" hidden>
-                <thead>
-                    <tr>
-                        <th scope="col">Título</th>
-                        <th scope="col">Colonia</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="body-reportes"></tbody>
-            </table>
+        <div id="contenido" hidden>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Título</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Colonia</th>
+                            <th scope="col">Prioridad</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-reportes"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Categorías de incidencia</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Gravedad</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-categorias"></tbody>
+                </table>
+            </div>
         </div>
     </main>
 

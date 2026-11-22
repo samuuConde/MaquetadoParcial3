@@ -19,14 +19,53 @@
         <article id="detalle-reporte" class="tarjeta" hidden>
             <h1 id="titulo-reporte">Reporte</h1>
             <p>Descripción: <span id="descripcion-reporte"></span></p>
-            <p>Categoría: <span id="categoria-reporte"></span></p>
+            <p>Categoría: <span id="categoria-reporte"></span> (gravedad <span id="gravedad-reporte"></span>)</p>
+            <p>Reportado por: <span id="usuario-reporte"></span></p>
             <p>Colonia: <span id="colonia-reporte"></span></p>
             <p>Ubicación: <span id="ubicacion-reporte"></span></p>
-            <p>Fecha: <span id="fecha-reporte"></span></p>
+            <p>Fecha: <span id="fecha-reporte"></span> a las <span id="hora-reporte"></span></p>
+            <p>Tubería relacionada: <span id="tuberia-reporte"></span></p>
+            <p>Fotografía: <span id="foto-reporte"></span></p>
             <p>Prioridad: <span id="prioridad-reporte"></span></p>
             <p>Estado: <span id="estado-reporte"></span></p>
             <a class="btn" id="enlace-editar" href="reporte-form.html">Editar</a>
         </article>
+
+        <div id="extra-reporte" hidden>
+            <h2 class="seccion">Viviendas afectadas</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Colonia</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Habitantes</th>
+                            <th scope="col">Referencia</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-viviendas"></tbody>
+                </table>
+            </div>
+
+            <h2 class="seccion">Técnico asignado</h2>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Técnico</th>
+                            <th scope="col">Asignación</th>
+                            <th scope="col">Inicio</th>
+                            <th scope="col">Término</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Resultado</th>
+                            <th scope="col">Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-asignaciones"></tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <include src="footer.html"></include>
